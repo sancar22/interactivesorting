@@ -12,14 +12,22 @@ const Bars = ({
   children,
   style,
   ref,
+  size,
   ...props
 }) => {
+  const font = size > 80 ? 8 : size > 50 ? 10 : size > 40 ? 12 : 14;
   return (
     <div
-      id={idx}
+      key={idx}
       className="bars"
-      style={{ width: `${width}vw`, height: `${height}vh` }}
-    ></div>
+      style={{
+        width: `${width}vw`,
+        height: `${height}vh`,
+        fontSize: `${font}px`,
+      }}
+    >
+      {children}
+    </div>
   );
 };
 

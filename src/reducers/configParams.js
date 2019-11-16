@@ -25,8 +25,9 @@ const configParamsReducer = (state = initState, action) => {
     case "ARRAY_SET":
       return {
         ...state,
-        randomArray: Array.from({ length: action.payload }, () =>
-          Math.floor(Math.random() * 100)
+        randomArray: Array.from(
+          { length: action.payload },
+          () => Math.floor(Math.random() * 97) + 3
         ),
         arraySize: parseInt(action.payload),
       };

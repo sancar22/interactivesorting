@@ -6,10 +6,17 @@ import "./App.css";
 function App() {
   const width = useResponsive();
   const randArray = useSelector(state => state.configuration.randomArray);
-  const wide = useSelector(state => state.configuration.arraySize);
+  const size = useSelector(state => state.configuration.arraySize);
   let randArrayDisp = randArray.map((num, index) => {
     return (
-      <Bars key={index} idx={index} width={100 / wide} height={0.87 * num} />
+      <Bars
+        key={index}
+        idx={index}
+        width={100 / size}
+        height={0.87 * num}
+        children={num}
+        size={size}
+      />
     );
   });
   console.log(randArrayDisp);
