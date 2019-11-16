@@ -3,25 +3,33 @@ import "./Navigation.css";
 import Logo from "../../assets/bars.png";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { config } from "../../actions/";
+import { useDispatch } from "react-redux";
 
 function Navigation() {
+  const [sliderVal, setSliderVal] = useState(10);
+  const [speedVal, setSpeedVal] = useState(5);
+  const [algorithm, setAlgorithm] = useState("Select...");
+  const dispatch = useDispatch();
   const searchAlgorithms = [
     "Bubble Sort",
     "Quick Sort",
     "Merge Sort",
     "Heap Sort",
   ];
-  const [sliderVal, setSliderVal] = useState(10);
-  const [speedVal, setSpeedVal] = useState(5);
 
   const handleSelect = e => {
-    console.log(e);
+    setAlgorithm(e.value);
   };
   const handleSizeSliderChange = e => {
     setSliderVal(e.target.value);
   };
   const handleSpeedSliderChange = e => {
     setSpeedVal(e.target.value);
+  };
+
+  const handleClick = () => {
+    dispatch(config({ algo: algorithm, speed: speedVal, slider: sliderVal }));
   };
   return (
     <div className="bodyy">
@@ -36,7 +44,7 @@ function Navigation() {
               <Dropdown
                 options={searchAlgorithms}
                 onChange={handleSelect}
-                value="Select..."
+                value={algorithm}
                 className="dropDown"
               />
             </div>
@@ -70,7 +78,9 @@ function Navigation() {
                 <div className="slideVal">{speedVal}</div>
               </div>
             </div>
-            <button className="buttonSort">SORT!</button>
+            <button onClick={handleClick} className="buttonSort">
+              SORT!
+            </button>
           </div>
         </header>
       </section>
