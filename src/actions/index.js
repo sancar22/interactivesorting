@@ -4,3 +4,10 @@ export const config = info => {
     payload: info,
   };
 };
+
+export const stop = info => {
+  return {
+    type: "STOP",
+    payload: info,
+  };
+};

@@ -2,7 +2,7 @@ import configParamsReducer from "./configParams";
 import { combineReducers } from "redux";
 
 const allReducer = combineReducers({
-  config: configParamsReducer,
+  configuration: configParamsReducer,
 });
 
 export default allReducer;
