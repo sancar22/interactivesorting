@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navigation.css";
 import Logo from "../../assets/bars.png";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import { config } from "../../actions/";
+import { config, arraySet } from "../../actions/";
 import { useDispatch, useSelector } from "react-redux";
 
 function Navigation() {
-  const [sliderVal, setSliderVal] = useState(10);
+  const [sizeVal, setSizeVal] = useState(10);
   const [speedVal, setSpeedVal] = useState(5);
   const [algorithm, setAlgorithm] = useState("Select...");
   const algoFinished = useSelector(state => state.configuration.finished);
@@ -23,15 +23,20 @@ function Navigation() {
     setAlgorithm(e.value);
   };
   const handleSizeSliderChange = e => {
-    setSliderVal(e.target.value);
+    setSizeVal(e.target.value);
   };
   const handleSpeedSliderChange = e => {
     setSpeedVal(e.target.value);
   };
 
+  useEffect(() => {
+    //Update array as slider moves
+    dispatch(arraySet(sizeVal));
+  }, [sizeVal]);
+
   const handleClick = () => {
     if (algorithm !== "Select...") {
-      dispatch(config({ algo: algorithm, speed: speedVal, slider: sliderVal }));
+      dispatch(config({ algo: algorithm, speed: speedVal, size: sizeVal }));
     } else {
       alert("Choose an algorithm!");
     }
@@ -67,7 +72,7 @@ function Navigation() {
                   onChange={handleSizeSliderChange}
                 />
                 <div className={algoFinished ? "slideVal" : "slideValOp"}>
-                  {sliderVal}
+                  {sizeVal}
                 </div>
               </div>
             </div>
@@ -88,7 +93,10 @@ function Navigation() {
                 </div>
               </div>
             </div>
-            <button onClick={handleClick} className="buttonSort">
+            <button
+              onClick={handleClick}
+              className={algoFinished ? "buttonSort" : "buttonSortOp"}
+            >
               SORT!
             </button>
           </div>

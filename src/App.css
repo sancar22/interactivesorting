@@ -1,0 +1,11 @@
+.arrayContainer {
+  display: flex;
+  height: 87vw;
+}
+
+.allContainer {
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 100vw;
+}

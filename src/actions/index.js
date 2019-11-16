@@ -11,3 +11,10 @@ export const stop = info => {
     payload: info,
   };
 };
+
+export const arraySet = info => {
+  return {
+    type: "ARRAY_SET",
+    payload: info,
+  };
+};

@@ -164,3 +164,16 @@ div.Dropdown-control {
 .buttonSort:hover {
   background-color: green;
 }
+
+.buttonSortOp {
+  height: 5vh;
+  position: relative;
+  left: 26.5vw;
+  width: 7vw;
+  top: 4vh;
+  transition: 0.7s;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: "Cormorant Garamond", serif;
+  opacity: 0.3;
+}
