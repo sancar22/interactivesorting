@@ -1,16 +1,82 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect, useRef } from "react";
 import Navigation from "./components/navigation/Navigation";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Bars from "./components/bars/Bars";
+import { getMergeSortAnimations } from "./algorithms/MergeSort";
+import { start, stop } from "./actions/";
 import "./App.css";
 function App() {
   const width = useResponsive();
   const configuration = useSelector(state => state.configuration);
-  const size = useSelector(state => state.configuration.arraySize);
+  console.log(configuration.randomArray);
+  const [isRunning, setIsRunning] = useState(true);
+  const size = configuration.arraySize;
+  const dispatch = useDispatch();
+  const firstUpdate = useRef(true);
+  useLayoutEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+    if (!isRunning) {
+      configuration.sortAlgorithm === "Merge Sort"
+        ? mergeSort()
+        : configuration.sortAlgorithm === "Bubble Sort"
+        ? console.log("Bubble Sort")
+        : alert("Select Algorithm");
+    }
+  }, [isRunning]);
+
+  const mergeSort = () => {
+    const animations = getMergeSortAnimations(configuration.randomArray);
+    for (let i = 0; i < animations.length; i++) {
+      const arrayBars = document.getElementsByClassName("bars");
+      const isColorChange = i % 3 !== 2;
+      if (isColorChange) {
+        const [barOneIdx, barTwoIdx] = animations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        console.log(arrayBars[barOneIdx].textContent);
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? "red" : "green";
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * (1 / configuration.speed) * 10);
+      } else {
+        setTimeout(() => {
+          const [barOneIdx, newHeight] = animations[i];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          arrayBars[barOneIdx].textContent = newHeight;
+
+          barOneStyle.height = `${newHeight * 0.87}vh`;
+        }, i * (1 / configuration.speed) * 10);
+      }
+    }
+
+    setTimeout(() => {
+      setIsRunning(true);
+    }, size * (1 / configuration.speed) * 200);
+  };
+  const clickHandler = () => {
+    if (configuration.sortAlgorithm !== "Select...") {
+      setIsRunning(false);
+    } else {
+      alert("Choose an algorithm");
+    }
+  };
 
   return (
     <div style={{ height: "100vh", width: width }} className="allContainer">
-      <Navigation />
+      <Navigation isRunning={isRunning} />
+      <div className="sorter">
+        <div
+          className="divSort"
+          style={{ visibility: !isRunning && "hidden" }}
+          onClick={clickHandler}
+        >
+          SORT!
+        </div>
+      </div>
       <div className="arrayContainer">
         {configuration.randomArray.map((num, index) => {
           const backgroundColor = "blue";

@@ -8,4 +8,28 @@
   white-space: nowrap;
   overflow: hidden;
   min-width: 100vw;
+  text-align: center;
+}
+
+.sorter {
+  position: fixed;
+  top: 40vh;
+  width: 100vw;
+  height: 100vh;
+}
+.divSort {
+  margin-top: 5vh;
+  font-size: 100px;
+  font-weight: bold;
+  font-family: "Indie Flower", cursive;
+  height: 17vh;
+  width: 25vw;
+  margin-left: 40vw;
+
+  opacity: 1;
+}
+
+.divSort:hover {
+  cursor: pointer;
+  color: rgb(107, 107, 110);
 }

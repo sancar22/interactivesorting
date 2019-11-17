@@ -2,7 +2,6 @@ const initState = {
   sortAlgorithm: null,
   speed: null,
   arraySize: null,
-  finished: true,
   randomArray: Array.from({ length: 10 }, () =>
     Math.floor(Math.random() * 100)
   ),
@@ -13,15 +12,10 @@ const configParamsReducer = (state = initState, action) => {
     case "CONFIG":
       return {
         ...state,
-        finished: false,
+        //finished: false,
         sortAlgorithm: action.payload.algo,
         speed: parseInt(action.payload.speed),
         arraySize: parseInt(action.payload.size),
-      };
-    case "STOP":
-      return {
-        ...state,
-        finished: true,
       };
     case "ARRAY_SET":
       return {

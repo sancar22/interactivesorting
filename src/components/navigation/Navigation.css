@@ -61,6 +61,7 @@ header {
 }
 div.Dropdown-menu {
   position: initial;
+  z-index: 1000;
 }
 
 .columnO {

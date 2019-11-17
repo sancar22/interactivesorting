@@ -6,11 +6,11 @@ import "react-dropdown/style.css";
 import { config, arraySet } from "../../actions/";
 import { useDispatch, useSelector } from "react-redux";
 
-function Navigation() {
+function Navigation({ isRunning, ...props }) {
   const [sizeVal, setSizeVal] = useState(10);
   const [speedVal, setSpeedVal] = useState(5);
   const [algorithm, setAlgorithm] = useState("Select...");
-  const algoFinished = useSelector(state => state.configuration.finished);
+  //const isRunning = useSelector(state => state.started);
   const dispatch = useDispatch();
   const searchAlgorithms = [
     "Bubble Sort",
@@ -27,10 +27,14 @@ function Navigation() {
   const handleClick = () => {
     if (algorithm !== "Select...") {
       dispatch(config({ algo: algorithm, speed: speedVal, size: sizeVal }));
+      //mergeSort();
     } else {
       alert("Choose an algorithm!");
     }
   };
+  useEffect(() => {
+    dispatch(config({ algo: algorithm, speed: speedVal, size: sizeVal }));
+  }, [sizeVal, speedVal, algorithm]);
   return (
     <div className="bodyy">
       <section>
@@ -45,8 +49,8 @@ function Navigation() {
                 options={searchAlgorithms}
                 onChange={e => setAlgorithm(e.value)}
                 value={algorithm}
-                className={algoFinished ? "dropDown" : "dropDownOp"}
-                disabled={algoFinished ? null : "disabled"}
+                className={isRunning ? "dropDown" : "dropDownOp"}
+                disabled={isRunning ? null : "disabled"}
               />
             </div>
             <div className="columnO1">
@@ -58,10 +62,10 @@ function Navigation() {
                   min="10"
                   max="100"
                   defaultValue="10"
-                  disabled={algoFinished ? null : "disabled"}
+                  disabled={isRunning ? null : "disabled"}
                   onChange={e => setSizeVal(e.target.value)}
                 />
-                <div className={algoFinished ? "slideVal" : "slideValOp"}>
+                <div className={isRunning ? "slideVal" : "slideValOp"}>
                   {sizeVal}
                 </div>
               </div>
@@ -75,18 +79,18 @@ function Navigation() {
                   min="1"
                   max="10"
                   defaultValue="5"
-                  disabled={algoFinished ? null : "disabled"}
+                  disabled={isRunning ? null : "disabled"}
                   onChange={e => setSpeedVal(e.target.value)}
                 />
-                <div className={algoFinished ? "slideVal" : "slideValOp"}>
+                <div className={isRunning ? "slideVal" : "slideValOp"}>
                   {speedVal}
                 </div>
               </div>
             </div>
             <button
               onClick={handleClick}
-              className={algoFinished ? "buttonSort" : "buttonSortOp"}
-              disabled={algoFinished ? null : "disabled"}
+              className={isRunning ? "buttonSort" : "buttonSortOp"}
+              disabled={isRunning ? null : "disabled"}
             >
               SORT!
             </button>

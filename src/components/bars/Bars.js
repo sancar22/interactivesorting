@@ -25,7 +25,7 @@ const Bars = ({
         width: `${width}vw`,
         height: `${height}vh`,
         fontSize: `${font}px`,
-        backgroundColor: bgColor,
+        backgroundColor: "blue",
       }}
     >
       {children}

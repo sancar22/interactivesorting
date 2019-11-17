@@ -12,6 +12,13 @@ export const stop = info => {
   };
 };
 
+export const start = info => {
+  return {
+    type: "START",
+    payload: info,
+  };
+};
+
 export const arraySet = info => {
   return {
     type: "ARRAY_SET",
@@ -29,6 +36,13 @@ export const arraySort = info => {
 export const changeArray = info => {
   return {
     type: "CHANGE_ARRAY",
+    payload: info,
+  };
+};
+
+export const arrayDuplicate = info => {
+  return {
+    type: "ARRAY_DUPLICATE",
     payload: info,
   };
 };
