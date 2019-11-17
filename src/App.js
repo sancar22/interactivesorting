@@ -8,7 +8,6 @@ import "./App.css";
 function App() {
   const width = useResponsive();
   const configuration = useSelector(state => state.configuration);
-  console.log(configuration.randomArray);
   const [isRunning, setIsRunning] = useState(true);
   const size = configuration.arraySize;
   const dispatch = useDispatch();
@@ -35,7 +34,6 @@ function App() {
       if (isColorChange) {
         const [barOneIdx, barTwoIdx] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
-        console.log(arrayBars[barOneIdx].textContent);
         const barTwoStyle = arrayBars[barTwoIdx].style;
         const color = i % 3 === 0 ? "red" : "green";
         setTimeout(() => {
@@ -55,7 +53,11 @@ function App() {
 
     setTimeout(() => {
       setIsRunning(true);
-    }, size * (1 / configuration.speed) * 200);
+      const arrayBars = document.getElementsByClassName("bars");
+      for (let i = 0; i < size; i++) {
+        arrayBars[i].style.backgroundColor = "blue";
+      }
+    }, size * (1 / configuration.speed) * 220);
   };
   const clickHandler = () => {
     if (configuration.sortAlgorithm !== "Select...") {
@@ -64,6 +66,20 @@ function App() {
       alert("Choose an algorithm");
     }
   };
+  let viewArray = configuration.randomArray.map((num, index) => {
+    const backgroundColor = "blue";
+    return (
+      <Bars
+        key={index}
+        idx={index}
+        width={100 / size}
+        height={0.87 * num}
+        children={num}
+        size={size}
+        bgColor={backgroundColor}
+      />
+    );
+  });
 
   return (
     <div style={{ height: "100vh", width: width }} className="allContainer">
@@ -77,22 +93,7 @@ function App() {
           SORT!
         </div>
       </div>
-      <div className="arrayContainer">
-        {configuration.randomArray.map((num, index) => {
-          const backgroundColor = "blue";
-          return (
-            <Bars
-              key={index}
-              idx={index}
-              width={100 / size}
-              height={0.87 * num}
-              children={num}
-              size={size}
-              bgColor={backgroundColor}
-            />
-          );
-        })}
-      </div>
+      <div className="arrayContainer">{viewArray}</div>
     </div>
   );
 }
