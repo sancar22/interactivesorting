@@ -12,6 +12,7 @@ const configParamsReducer = (state = initState, action) => {
   switch (action.type) {
     case "CONFIG":
       return {
+        ...state,
         finished: false,
         sortAlgorithm: action.payload.algo,
         speed: parseInt(action.payload.speed),

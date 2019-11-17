@@ -5,25 +5,28 @@ import Bars from "./components/bars/Bars";
 import "./App.css";
 function App() {
   const width = useResponsive();
-  const randArray = useSelector(state => state.configuration.randomArray);
+  const configuration = useSelector(state => state.configuration);
   const size = useSelector(state => state.configuration.arraySize);
-  let randArrayDisp = randArray.map((num, index) => {
-    return (
-      <Bars
-        key={index}
-        idx={index}
-        width={100 / size}
-        height={0.87 * num}
-        children={num}
-        size={size}
-      />
-    );
-  });
-  console.log(randArrayDisp);
+
   return (
     <div style={{ height: "100vh", width: width }} className="allContainer">
       <Navigation />
-      <div className="arrayContainer">{randArrayDisp}</div>
+      <div className="arrayContainer">
+        {configuration.randomArray.map((num, index) => {
+          const backgroundColor = "blue";
+          return (
+            <Bars
+              key={index}
+              idx={index}
+              width={100 / size}
+              height={0.87 * num}
+              children={num}
+              size={size}
+              bgColor={backgroundColor}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

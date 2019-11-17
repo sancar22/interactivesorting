@@ -19,16 +19,6 @@ function Navigation() {
     "Heap Sort",
   ];
 
-  const handleSelect = e => {
-    setAlgorithm(e.value);
-  };
-  const handleSizeSliderChange = e => {
-    setSizeVal(e.target.value);
-  };
-  const handleSpeedSliderChange = e => {
-    setSpeedVal(e.target.value);
-  };
-
   useEffect(() => {
     //Update array as slider moves
     dispatch(arraySet(sizeVal));
@@ -53,7 +43,7 @@ function Navigation() {
               <div className="textT">Sorting Algorithm</div>
               <Dropdown
                 options={searchAlgorithms}
-                onChange={handleSelect}
+                onChange={e => setAlgorithm(e.value)}
                 value={algorithm}
                 className={algoFinished ? "dropDown" : "dropDownOp"}
                 disabled={algoFinished ? null : "disabled"}
@@ -69,7 +59,7 @@ function Navigation() {
                   max="100"
                   defaultValue="10"
                   disabled={algoFinished ? null : "disabled"}
-                  onChange={handleSizeSliderChange}
+                  onChange={e => setSizeVal(e.target.value)}
                 />
                 <div className={algoFinished ? "slideVal" : "slideValOp"}>
                   {sizeVal}
@@ -86,7 +76,7 @@ function Navigation() {
                   max="10"
                   defaultValue="5"
                   disabled={algoFinished ? null : "disabled"}
-                  onChange={handleSpeedSliderChange}
+                  onChange={e => setSpeedVal(e.target.value)}
                 />
                 <div className={algoFinished ? "slideVal" : "slideValOp"}>
                   {speedVal}
@@ -96,6 +86,7 @@ function Navigation() {
             <button
               onClick={handleClick}
               className={algoFinished ? "buttonSort" : "buttonSortOp"}
+              disabled={algoFinished ? null : "disabled"}
             >
               SORT!
             </button>

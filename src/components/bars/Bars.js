@@ -13,6 +13,7 @@ const Bars = ({
   style,
   ref,
   size,
+  bgColor,
   ...props
 }) => {
   const font = size > 80 ? 8 : size > 50 ? 10 : size > 40 ? 12 : 14;
@@ -24,6 +25,7 @@ const Bars = ({
         width: `${width}vw`,
         height: `${height}vh`,
         fontSize: `${font}px`,
+        backgroundColor: bgColor,
       }}
     >
       {children}

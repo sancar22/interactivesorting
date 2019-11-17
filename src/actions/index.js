@@ -18,3 +18,17 @@ export const arraySet = info => {
     payload: info,
   };
 };
+
+export const arraySort = info => {
+  return {
+    type: "SORT_ARRAY",
+    payload: info,
+  };
+};
+
+export const changeArray = info => {
+  return {
+    type: "CHANGE_ARRAY",
+    payload: info,
+  };
+};
