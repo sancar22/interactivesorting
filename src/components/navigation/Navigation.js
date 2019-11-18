@@ -59,9 +59,9 @@ function Navigation({ isRunning, ...props }) {
                 <input
                   id="sizeChanger"
                   type="range"
-                  min="10"
+                  min="4"
                   max="100"
-                  defaultValue="10"
+                  defaultValue="3"
                   disabled={isRunning ? null : "disabled"}
                   onChange={e => setSizeVal(e.target.value)}
                 />
