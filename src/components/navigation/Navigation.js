@@ -99,15 +99,6 @@ function Navigation({ isRunning, ...props }) {
                                 </div>
                             </div>
                         </div>
-                        <button
-                            onClick={handleClick}
-                            className={
-                                isRunning ? "buttonSort" : "buttonSortOp"
-                            }
-                            disabled={isRunning ? null : "disabled"}
-                        >
-                            SORT!
-                        </button>
                     </div>
                 </header>
             </section>

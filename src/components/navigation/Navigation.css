@@ -1,180 +1,180 @@
 .bodyy {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: row;
-  height: 13%;
-  width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: row;
+    height: 13%;
+    width: 100%;
 }
 
 section {
-  position: absolute;
-  width: 100vw;
-  height: 13vh;
-  background-position: center center;
+    position: absolute;
+    width: 100vw;
+    height: 13vh;
+    background-position: center center;
 }
 .navBox {
-  display: flex;
-  position: relative;
+    display: flex;
+    position: relative;
 }
 .image {
-  position: relative;
-  display: flex;
-  left: 3vw;
-  height: 13vh;
+    position: relative;
+    display: flex;
+    left: 3vw;
+    height: 13vh;
 }
 
 header {
-  padding: 0;
-  margin: 0px;
-  width: 100vw;
-  height: 13vh;
-  box-sizing: border-box;
-  background: rgba(248, 245, 245, 0.8);
-  transition: 0.5s;
+    padding: 0;
+    margin: 0px;
+    width: 100vw;
+    height: 13vh;
+    box-sizing: border-box;
+    background: rgba(248, 245, 245, 0.8);
+    transition: 0.5s;
 }
 
 .titleP {
-  position: relative;
-  top: 3.5vh;
-  left: 7.8vw;
-  font-size: 30px;
-  text-transform: uppercase;
-  color: #262626;
-  font-weight: bold;
-  font-family: "Indie Flower", cursive;
+    position: relative;
+    top: 3.5vh;
+    left: 7.8vw;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #262626;
+    font-weight: bold;
+    font-family: "Indie Flower", cursive;
 }
 
 .dropDown {
-  position: relative;
-  top: 2.1vh;
-  position: initial;
-  left: 13vw;
+    position: relative;
+    top: 2.1vh;
+    position: initial;
+    left: 13vw;
 }
 .dropDownOp {
-  position: relative;
-  top: 2.1vh;
-  position: initial;
-  left: 13vw;
-  opacity: 0.3;
+    position: relative;
+    top: 2.1vh;
+    position: initial;
+    left: 13vw;
+    opacity: 0.3;
 }
 div.Dropdown-menu {
-  position: initial;
-  z-index: 1000;
+    position: initial;
+    z-index: 1000;
 }
 
 .columnO {
-  display: flex;
-  flex-direction: column;
-  left: 15vw;
+    display: flex;
+    flex-direction: column;
+    left: 15vw;
 }
 
 .textT {
-  position: relative;
-  font-size: 14px;
-  font-family: "Cormorant Garamond", serif;
-  left: 13vw;
-  top: 1vw;
-  font-weight: bold;
+    position: relative;
+    font-size: 14px;
+    font-family: "Cormorant Garamond", serif;
+    left: 13vw;
+    top: 1vw;
+    font-weight: bold;
 }
 
 div.Dropdown-placeholder.is-selected {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: bold;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: bold;
 }
 
 div.Dropdown-option {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: bold;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: bold;
 }
 div.Dropdown-menu {
-  width: 10vw;
+    width: 10vw;
 }
 div.Dropdown-control {
-  width: 11vw;
+    width: 11vw;
 }
 
 .slider {
-  position: relative;
-  left: 17vw;
-  top: 1.3vw;
-  display: flex;
+    position: relative;
+    left: 17vw;
+    top: 1.3vw;
+    display: flex;
 }
 
 .textT1 {
-  position: relative;
-  font-size: 14px;
-  font-family: "Cormorant Garamond", serif;
-  left: 20.5vw;
-  top: 1.2vw;
-  font-weight: bold;
+    position: relative;
+    font-size: 14px;
+    font-family: "Cormorant Garamond", serif;
+    left: 16.5vw;
+    top: 1.2vw;
+    font-weight: bold;
 }
 
 .slideVal {
-  position: relative;
-  font-size: 20px;
-  left: 0.3vw;
-  top: 0;
-  font-weight: bold;
-  font-family: "Indie Flower", cursive;
-  border-bottom: 1px solid black;
-  width: 2vw;
-  text-align: center;
+    position: relative;
+    font-size: 20px;
+    left: 0.3vw;
+    top: 0;
+    font-weight: bold;
+    font-family: "Indie Flower", cursive;
+    border-bottom: 1px solid black;
+    width: 2vw;
+    text-align: center;
 }
 .slideValOp {
-  position: relative;
-  font-size: 20px;
-  left: 0.3vw;
-  top: 0;
-  font-weight: bold;
-  font-family: "Indie Flower", cursive;
-  border-bottom: 1px solid black;
-  width: 2vw;
-  text-align: center;
-  opacity: 0.3;
+    position: relative;
+    font-size: 20px;
+    left: 0.3vw;
+    top: 0;
+    font-weight: bold;
+    font-family: "Indie Flower", cursive;
+    border-bottom: 1px solid black;
+    width: 2vw;
+    text-align: center;
+    opacity: 0.3;
 }
 
 .textT2 {
-  position: relative;
-  font-size: 14px;
-  font-family: "Cormorant Garamond", serif;
-  left: 25vw;
-  top: 1.2vw;
-  font-weight: bold;
+    position: relative;
+    font-size: 14px;
+    font-family: "Cormorant Garamond", serif;
+    left: 21vw;
+    top: 1.2vw;
+    font-weight: bold;
 }
 .slider1 {
-  position: relative;
-  left: 22vw;
-  top: 1.3vw;
-  display: flex;
+    position: relative;
+    left: 22vw;
+    top: 1.3vw;
+    display: flex;
 }
 
 .buttonSort {
-  height: 5vh;
-  position: relative;
-  left: 26.5vw;
-  width: 7vw;
-  top: 4vh;
-  transition: 0.7s;
-  border-radius: 10px;
-  font-weight: bold;
-  font-family: "Cormorant Garamond", serif;
+    height: 5vh;
+    position: relative;
+    left: 26.5vw;
+    width: 7vw;
+    top: 4vh;
+    transition: 0.7s;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: "Cormorant Garamond", serif;
 }
 
 .buttonSort:hover {
-  background-color: green;
+    background-color: green;
 }
 
 .buttonSortOp {
-  height: 5vh;
-  position: relative;
-  left: 26.5vw;
-  width: 7vw;
-  top: 4vh;
-  transition: 0.7s;
-  border-radius: 10px;
-  font-weight: bold;
-  font-family: "Cormorant Garamond", serif;
-  opacity: 0.3;
+    height: 5vh;
+    position: relative;
+    left: 26.5vw;
+    width: 7vw;
+    top: 4vh;
+    transition: 0.7s;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: "Cormorant Garamond", serif;
+    opacity: 0.3;
 }

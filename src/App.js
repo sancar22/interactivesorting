@@ -52,7 +52,7 @@ function App() {
                 }, i * (1 / configuration.speed) * 10);
             }
         }
-        timer();
+        timerMerge();
     };
 
     const bubbleSort = () => {
@@ -76,7 +76,7 @@ function App() {
                 barTwoStyle.backgroundColor = color;
                 prevOneStyle.backgroundColor = color;
                 prevTwoStyle.backgroundColor = color;
-            }, i * 10);
+            }, i * (1 / configuration.speed) * 10);
 
             //const [barOneIdx, barTwoIdx] = animations[i];
             if (swap) {
@@ -90,14 +90,14 @@ function App() {
 
                     arrayBars[barOneIdx].textContent = newTextOne;
                     arrayBars[barTwoIdx].textContent = newTextTwo;
-                }, i * 10);
+                }, i * (1 / configuration.speed) * 10);
             }
         }
 
-        timer();
+        timerBubble();
     };
 
-    const timer = () =>
+    const timerMerge = () =>
         setTimeout(() => {
             setIsRunning(true);
             const arrayBars = document.getElementsByClassName("bars");
@@ -105,6 +105,15 @@ function App() {
                 arrayBars[i].style.backgroundColor = "blue";
             }
         }, size * (1 / configuration.speed) * 220); //220
+
+    const timerBubble = () =>
+        setTimeout(() => {
+            setIsRunning(true);
+            const arrayBars = document.getElementsByClassName("bars");
+            for (let i = 0; i < size; i++) {
+                arrayBars[i].style.backgroundColor = "blue";
+            }
+        }, size * (1 / configuration.speed) * 770);
 
     const clickHandler = () => {
         if (configuration.sortAlgorithm !== "Select...") {
