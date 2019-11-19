@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Navigation.css";
-import Logo from "../../assets/bars.png";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { config, arraySet } from "../../actions/";
 import { useDispatch } from "react-redux";
 
 function Navigation({ isRunning, ...props }) {
+    const Logo = require("../../assets/bars.png");
     const [sizeVal, setSizeVal] = useState(50);
     const [speedVal, setSpeedVal] = useState(5);
     const [algorithm, setAlgorithm] = useState("Select...");
