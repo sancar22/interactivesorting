@@ -15,7 +15,7 @@ function heapify(arr, length, i, animations) {
         largest = right;
     }
 
-    if (largest != i) {
+    if (largest !== i) {
         animations.push([i, largest, true]);
         [arr[i], arr[largest]] = [arr[largest], arr[i]];
         heapify(arr, length, largest, animations);

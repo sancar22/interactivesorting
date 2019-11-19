@@ -49,7 +49,7 @@ function quickSortHelper(items, left, right, animations) {
     return animations;
 }
 
-export const getQuickSortAnimations = (items, left, right) => {
+export const getQSAnim = (items, left, right) => {
     const animations = [];
     animations.push([0, 0, false]);
     const animat = quickSortHelper(items, left, right, animations);

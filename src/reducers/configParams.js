@@ -26,11 +26,6 @@ const configParamsReducer = (state = initState, action) => {
                 ),
                 arraySize: parseInt(action.payload),
             };
-        case "STOP":
-            return {
-                ...state,
-                randomArray: [],
-            };
 
         default:
             return state;

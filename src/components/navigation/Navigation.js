@@ -7,10 +7,9 @@ import { config, arraySet } from "../../actions/";
 import { useDispatch } from "react-redux";
 
 function Navigation({ isRunning, ...props }) {
-    const [sizeVal, setSizeVal] = useState(10);
+    const [sizeVal, setSizeVal] = useState(50);
     const [speedVal, setSpeedVal] = useState(5);
     const [algorithm, setAlgorithm] = useState("Select...");
-    //const isRunning = useSelector(state => state.started);
     const dispatch = useDispatch();
     const searchAlgorithms = [
         "Merge Sort",
@@ -24,16 +23,6 @@ function Navigation({ isRunning, ...props }) {
         dispatch(arraySet(sizeVal));
     }, [sizeVal]);
 
-    const handleClick = () => {
-        if (algorithm !== "Select...") {
-            dispatch(
-                config({ algo: algorithm, speed: speedVal, size: sizeVal })
-            );
-            //mergeSort();
-        } else {
-            alert("Choose an algorithm!");
-        }
-    };
     useEffect(() => {
         dispatch(config({ algo: algorithm, speed: speedVal, size: sizeVal }));
     }, [sizeVal, speedVal, algorithm]);
@@ -63,9 +52,9 @@ function Navigation({ isRunning, ...props }) {
                                 <input
                                     id="sizeChanger"
                                     type="range"
-                                    min="4"
+                                    min="10"
                                     max="100"
-                                    defaultValue="3"
+                                    defaultValue="50"
                                     disabled={isRunning ? null : "disabled"}
                                     onChange={e => setSizeVal(e.target.value)}
                                 />
