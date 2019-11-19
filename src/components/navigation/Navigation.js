@@ -4,7 +4,7 @@ import Logo from "../../assets/bars.png";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { config, arraySet } from "../../actions/";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function Navigation({ isRunning, ...props }) {
     const [sizeVal, setSizeVal] = useState(10);

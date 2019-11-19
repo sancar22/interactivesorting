@@ -10,7 +10,7 @@ function partition(items, left, right, animations) {
         i = left, //left pointer
         j = right; //right pointer
     while (i <= j) {
-        animations.push([i, idx, false]);
+        animations.push([i, idx, false]); // PURPOSELY PUSHING TWICE FOR ANIMATIONS
         animations.push([i, idx, false]);
         while (items[i] < pivot) {
             i++;

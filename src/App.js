@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Bars from "./components/bars/Bars";
 import { getMergeSortAnimations } from "./algorithms/MergeSort";
 import { getBubbleSortAnimations } from "./algorithms/BubbleSort";
-import { getQuickSortAnimations } from "./algorithms/quickSort";
+import { getQuickSortAnimations } from "./algorithms/QuickSort";
+import { getHeapSortAnimations } from "./algorithms/HeapSort";
 
 import "./App.css";
 function App() {
@@ -26,7 +27,7 @@ function App() {
                 ? bubbleSort()
                 : configuration.sortAlgorithm === "Quick Sort"
                 ? quickSort()
-                : console.log("None");
+                : heapSort();
         }
     }, [isRunning]);
 
@@ -146,6 +147,56 @@ function App() {
         timerQuick();
     };
 
+    const heapSort = () => {
+        const animations = getHeapSortAnimations(configuration.randomArray);
+        console.log(animations);
+        for (let i = 1; i < animations.length; i++) {
+            const arrayBars = document.getElementsByClassName("bars");
+            const [barOneIdx, barTwoIdx, swap] = animations[i];
+            const [prevBarOneIdx, prevBarTwoIdx] = animations[i - 1];
+            const barOneStyle = arrayBars[barOneIdx].style;
+            const barTwoStyle = arrayBars[barTwoIdx].style;
+            const prevOneStyle = arrayBars[prevBarOneIdx].style;
+            const prevTwoStyle = arrayBars[prevBarTwoIdx].style;
+
+            const color =
+                barOneIdx === prevBarOneIdx && barTwoIdx === prevBarTwoIdx
+                    ? "red"
+                    : "green";
+
+            setTimeout(() => {
+                barOneStyle.backgroundColor = color;
+                barTwoStyle.backgroundColor = color;
+                prevOneStyle.backgroundColor = color;
+                prevTwoStyle.backgroundColor = color;
+            }, i * (1 / configuration.speed) * 10);
+
+            //const [barOneIdx, barTwoIdx] = animations[i];
+            if (swap) {
+                setTimeout(() => {
+                    const newHeightOne = barTwoStyle.height;
+                    const newHeightTwo = barOneStyle.height;
+
+                    const newTextOne = arrayBars[barTwoIdx].textContent;
+                    const newTextTwo = arrayBars[barOneIdx].textContent;
+
+                    barOneStyle.height = newHeightOne;
+                    barTwoStyle.height = newHeightTwo;
+                    arrayBars[barOneIdx].textContent = newTextOne;
+                    arrayBars[barTwoIdx].textContent = newTextTwo;
+                }, i * (1 / configuration.speed) * 10);
+            }
+        }
+        timerHeap();
+    };
+    const timerHeap = () =>
+        setTimeout(() => {
+            setIsRunning(true);
+            const arrayBars = document.getElementsByClassName("bars");
+            for (let i = 0; i < size; i++) {
+                arrayBars[i].style.backgroundColor = "blue";
+            }
+        }, size * (1 / configuration.speed) * 220); //220
     const timerMerge = () =>
         setTimeout(() => {
             setIsRunning(true);
@@ -162,7 +213,7 @@ function App() {
             for (let i = 0; i < size; i++) {
                 arrayBars[i].style.backgroundColor = "blue";
             }
-        }, size * (1 / configuration.speed) * 200); //220
+        }, size * (1 / configuration.speed) * 220); //220
 
     const timerBubble = () =>
         setTimeout(() => {
