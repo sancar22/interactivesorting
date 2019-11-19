@@ -8,7 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 import allReducer from "./reducers/";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-
+import "../public/bars.ico";
 const store = createStore(
     allReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
