@@ -13,12 +13,10 @@
         "redux": "^4.0.4"
     },
     "scripts": {
-        "start": "node server.js",
-        "dev": "webpack-dev-server --mode development --open --hot",
+        "start": "webpack-dev-server --mode development --open --hot",
         "build": "webpack --mode production",
         "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "heroku-postbuild": "webpack -p"
+        "eject": "react-scripts eject"
     },
     "eslintConfig": {
         "extends": "react-app"
