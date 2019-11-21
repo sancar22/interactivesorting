@@ -1,7 +1,7 @@
 {
     "name": "interactive_sorting",
     "version": "0.1.0",
-    "private": true,
+    "main": "dist/index.js",
     "dependencies": {
         "react": "^16.12.0",
         "react-app-polyfill": "^1.0.4",
@@ -16,7 +16,11 @@
         "start": "webpack-dev-server --mode development --open --hot",
         "build": "webpack --mode production",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "transpile": "babel src -d dist --copy-files",
+        "prepublishOnly": "npm run transpile",
+        "deploy": "gh-pages -d dist",
+        "publish-demo": "npm run build && npm run deploy"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -33,12 +37,19 @@
             "not op_mini all"
         ]
     },
+    "peerDependencies": {
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+    },
     "devDependencies": {
+        "@babel/cli": "^7.7.0",
         "@babel/core": "^7.7.2",
         "@babel/preset-env": "^7.7.1",
         "@babel/preset-react": "^7.7.0",
+        "babel-cli": "^7.0.0",
         "babel-loader": "^8.0.6",
         "css-loader": "^3.2.0",
+        "gh-pages": "^2.1.1",
         "html-webpack-plugin": "^3.2.0",
         "image-webpack-loader": "^6.0.0",
         "style-loader": "^1.0.0",

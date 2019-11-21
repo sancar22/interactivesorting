@@ -11,6 +11,7 @@ import "./App.css";
 
 function App() {
     const width = useResponsive();
+    const height = useResponsive1();
     const configuration = useSelector(state => state.configuration);
     const [isRunning, setIsRunning] = useState(true);
     const { arraySize, speed, randomArray, sortAlgorithm } = configuration;
@@ -73,7 +74,7 @@ function App() {
     };
 
     return (
-        <div style={{ height: "100vh", width: width }} className="allContainer">
+        <div style={{ height: height, width: width }} className="allContainer">
             <Navigation isRunning={isRunning} />
             <div className="sorter">
                 <div
@@ -115,12 +116,26 @@ function arrayOriginalColor(arraySize) {
 
 function useResponsive() {
     const [width, setWidth] = useState(window.innerWidth);
+
     useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
+        const handleResizeW = () => setWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResizeW);
         return () => {
-            window.removeEventListener("resize", handleResize);
+            window.removeEventListener("resize", handleResizeW);
         };
     });
     return width;
+}
+
+function useResponsive1() {
+    const [height, setHeight] = useState(window.innerHeight);
+    useEffect(() => {
+        const handleResizeH = () => setHeight(window.innerHeight);
+        window.addEventListener("resize", handleResizeH);
+        return () => {
+            window.removeEventListener("resize", handleResizeH);
+        };
+    });
+    return height;
 }

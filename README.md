@@ -10,3 +10,5 @@ The user can choose from a dropdown menu which of these algorithms he/she wishes
 Green bars mean the algorithm already compared those with other bars. Red bars are the elements currently being compared.
 
 WHEN FINISHED SORTING, MOVE THE ARRAY SIZE BAR TO GENERATE A NEW RANDOM ARRAY OR JUST CLICK GENERATE NEW ARRAY BUTTON.
+
+To check it out visit: (WORKS ON CHROME, MOZILLA, IE11...) https://sancar22.github.io/interactivesorting/

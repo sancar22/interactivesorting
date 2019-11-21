@@ -1,12 +1,17 @@
+const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
-    template: "./public/index.html",
+    template: path.join(__dirname, "public/index.html"),
     filename: "./index.html",
-    favicon: "./public/bars.ico",
 });
 
 module.exports = {
+    entry: path.join(__dirname, "src/index.js"),
+    output: {
+        path: path.join(__dirname, "dist"),
+        filename: "bundle.js",
+    },
     module: {
         rules: [
             {
@@ -36,4 +41,10 @@ module.exports = {
         ],
     },
     plugins: [htmlPlugin],
+    resolve: {
+        extensions: [".js", ".jsx"],
+    },
+    devServer: {
+        port: 3001,
+    },
 };
