@@ -39,7 +39,7 @@ header {
     position: relative;
     top: 3.5vh;
     left: 7.8vw;
-    font-size: 30px;
+    font-size: 2em;
     text-transform: uppercase;
     color: #262626;
     font-weight: bold;
@@ -100,13 +100,14 @@ div.Dropdown-control {
     left: 17vw;
     top: 1.3vw;
     display: flex;
+    width: 10vw;
 }
 
 .textT1 {
     position: relative;
     font-size: 14px;
     font-family: "Cormorant Garamond", serif;
-    left: 16.5vw;
+    left: 17vw;
     top: 1.2vw;
     font-weight: bold;
 }
@@ -139,7 +140,7 @@ div.Dropdown-control {
     position: relative;
     font-size: 14px;
     font-family: "Cormorant Garamond", serif;
-    left: 21vw;
+    left: 19.5vw;
     top: 1.2vw;
     font-weight: bold;
 }
@@ -148,33 +149,19 @@ div.Dropdown-control {
     left: 22vw;
     top: 1.3vw;
     display: flex;
+    width: 15vw;
 }
 
-.buttonSort {
-    height: 5vh;
+.generateArr {
+    display: flex;
     position: relative;
-    left: 26.5vw;
-    width: 7vw;
-    top: 4vh;
-    transition: 0.7s;
-    border-radius: 10px;
+    left: 3vw;
+    font-family: "Indie Flower", cursive;
     font-weight: bold;
-    font-family: "Cormorant Garamond", serif;
-}
-
-.buttonSort:hover {
-    background-color: green;
-}
-
-.buttonSortOp {
-    height: 5vh;
-    position: relative;
-    left: 26.5vw;
-    width: 7vw;
-    top: 4vh;
+    font-size: 1.2em;
     transition: 0.7s;
-    border-radius: 10px;
-    font-weight: bold;
-    font-family: "Cormorant Garamond", serif;
-    opacity: 0.3;
+}
+.generateArr:hover {
+    opacity: 0.5;
+    cursor: pointer;
 }

@@ -26,6 +26,9 @@ function Navigation({ isRunning, ...props }) {
     useEffect(() => {
         dispatch(config({ algo: algorithm, speed: speedVal, size: sizeVal }));
     }, [sizeVal, speedVal, algorithm]);
+    const clickHandler = () => {
+        dispatch(arraySet(sizeVal));
+    };
     return (
         <div className="bodyy">
             <section>
@@ -85,6 +88,18 @@ function Navigation({ isRunning, ...props }) {
                                     }
                                 >
                                     {speedVal}
+                                </div>
+                                <div
+                                    onClick={clickHandler}
+                                    className="generateArr"
+                                    style={{
+                                        pointerEvents: isRunning
+                                            ? "auto"
+                                            : "none",
+                                        opacity: !isRunning && "0.5",
+                                    }}
+                                >
+                                    GENERATE NEW ARRAY
                                 </div>
                             </div>
                         </div>
