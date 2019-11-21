@@ -43,6 +43,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function App() {
   var width = useResponsive();
+  var height = useResponsive1();
   var configuration = (0, _reactRedux.useSelector)(function (state) {
     return state.configuration;
   });
@@ -110,7 +111,7 @@ function App() {
 
   return _react.default.createElement("div", {
     style: {
-      height: "100vh",
+      height: height,
       width: width
     },
     className: "allContainer"
@@ -158,14 +159,33 @@ function useResponsive() {
       setWidth = _useState4[1];
 
   (0, _react.useEffect)(function () {
-    var handleResize = function handleResize() {
+    var handleResizeW = function handleResizeW() {
       return setWidth(window.innerWidth);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResizeW);
     return function () {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResizeW);
     };
   });
   return width;
+}
+
+function useResponsive1() {
+  var _useState5 = (0, _react.useState)(window.innerHeight),
+      _useState6 = _slicedToArray(_useState5, 2),
+      height = _useState6[0],
+      setHeight = _useState6[1];
+
+  (0, _react.useEffect)(function () {
+    var handleResizeH = function handleResizeH() {
+      return setHeight(window.innerHeight);
+    };
+
+    window.addEventListener("resize", handleResizeH);
+    return function () {
+      window.removeEventListener("resize", handleResizeH);
+    };
+  });
+  return height;
 }

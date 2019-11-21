@@ -6,6 +6,7 @@
     flex-direction: row;
     height: 13%;
     width: 100%;
+    justify-content: space-evenly;
 }
 
 section {
@@ -17,11 +18,12 @@ section {
 .navBox {
     display: flex;
     position: relative;
+    justify-content: space-around;
 }
 .image {
     position: relative;
     display: flex;
-    left: 3vw;
+    left: -2.5vw;
     height: 13vh;
 }
 
@@ -38,7 +40,7 @@ header {
 .titleP {
     position: relative;
     top: 3.5vh;
-    left: 7.8vw;
+    left: -8vw;
     font-size: 2em;
     text-transform: uppercase;
     color: #262626;
@@ -50,13 +52,13 @@ header {
     position: relative;
     top: 2.1vh;
     position: initial;
-    left: 13vw;
+    left: -11vw;
 }
 .dropDownOp {
     position: relative;
     top: 2.1vh;
     position: initial;
-    left: 13vw;
+    left: -11vw;
     opacity: 0.3;
 }
 div.Dropdown-menu {
@@ -67,14 +69,14 @@ div.Dropdown-menu {
 .columnO {
     display: flex;
     flex-direction: column;
-    left: 15vw;
+    left: -3vw;
 }
 
 .textT {
     position: relative;
     font-size: 14px;
     font-family: "Cormorant Garamond", serif;
-    left: 13vw;
+    left: -11vw;
     top: 1vw;
     font-weight: bold;
 }
@@ -97,7 +99,7 @@ div.Dropdown-control {
 
 .slider {
     position: relative;
-    left: 17vw;
+    left: -15vw;
     top: 1.3vw;
     display: flex;
     width: 10vw;
@@ -107,7 +109,7 @@ div.Dropdown-control {
     position: relative;
     font-size: 14px;
     font-family: "Cormorant Garamond", serif;
-    left: 17vw;
+    left: -15vw;
     top: 1.2vw;
     font-weight: bold;
 }
@@ -140,13 +142,13 @@ div.Dropdown-control {
     position: relative;
     font-size: 14px;
     font-family: "Cormorant Garamond", serif;
-    left: 19.5vw;
+    left: -18.5vw;
     top: 1.2vw;
     font-weight: bold;
 }
 .slider1 {
     position: relative;
-    left: 22vw;
+    left: -16vw;
     top: 1.3vw;
     display: flex;
     width: 15vw;
